@@ -2,7 +2,7 @@ sudo: required
 services:
   - docker
 before_install:
-  - docker build -t keisuke123456789/multi-client -f ./client/Dockerfile.dev
+  - docker build -t keisuke123456789/multi-client -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true keisuke123456789/multi-client npm run test -- --coverage
