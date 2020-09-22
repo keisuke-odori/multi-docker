@@ -19,3 +19,14 @@ after_success:
   - docker push keisuke123456789/multi-nginx
   - docker push keisuke123456789/multi-server
   - docker push keisuke123456789/multi-worker
+deploy:
+  provider: elasticbeanstalk
+  region: ap-northeast-1
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-ap-northeast-1-462424499241
+  bucket_path: docker-react
+  on:
+    branch: master
+  access_ket_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
